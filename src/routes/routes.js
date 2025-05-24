@@ -1,0 +1,14 @@
+const { Router } = require ("express")
+const ProductController = require("../Controllers/ProductController")
+
+const routes = Router();
+
+routes.get("/index" , (req , res) => {
+  return res.status(200).json({message: "Server is on..."})
+});
+
+
+routes.post("/products" , ProductController.store );
+
+
+module.exports = routes;

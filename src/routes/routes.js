@@ -10,6 +10,11 @@ routes.get("/index" , (req , res) => {
 
 
 routes.post("/products" , ProductController.store );
+routes.get("/products" , ProductController.index );
+routes.get("/products/:id" , ProductController.show)
+
+
+
 routes.post("/users" , UserController.usercreate );
 
 module.exports = routes;

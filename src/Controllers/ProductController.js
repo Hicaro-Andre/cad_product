@@ -38,7 +38,21 @@ class ProductController {
     }
   }
 
-  async destroy() {}
+  async destroy(req, res) {
+    try {
+      const { id } = req.params;
+
+      const productDeleted = await ProductModel.findByIdAndDelete(id);
+
+      if (!productDeleted) {
+        return res.status(404).json({ message: "Product does not exists" });
+      }
+
+      return res.status(200).json({ message: "Product Delete" });
+    } catch (error) {
+      return res.status(404).json({ message: "Failed to delete product" });
+    }
+  }
 }
 
 module.exports = new ProductController();

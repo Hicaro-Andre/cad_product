@@ -1,16 +1,27 @@
 const ProductModel = require("../Models/ProductModel.js");
 
 class ProductController {
+  //todo: function of create the products
   async store(req, res) {
-    const createdProduct = await ProductModel.create(req.body);
-    return res.status(200).json(createdProduct);
+    try {
+      const createdProduct = await ProductModel.create(req.body);
+      return res.status(200).json(createdProduct);
+    } catch (error) {
+      res.status(404).json({ message: "Failed create products" });
+    }
   }
 
+  //todo: function for list products
   async index(req, res) {
-    const products = await ProductModel.find();
-    return res.status(200).json(products);
+    try {
+      const products = await ProductModel.find();
+      return res.status(200).json(products);
+    } catch (error) {
+      return res.status(404).json({ message: "Failed to list products" });
+    }
   }
 
+  //todo: function for list products with ID
   async show(req, res) {
     try {
       const { id } = req.params;
@@ -27,6 +38,7 @@ class ProductController {
     }
   }
 
+  //todo: function for update products
   async update(req, res) {
     try {
       const { id } = req.params;
@@ -37,7 +49,7 @@ class ProductController {
       return res.status(404).json({ message: "Failed to update product" });
     }
   }
-
+  //todo: function for delete products
   async destroy(req, res) {
     try {
       const { id } = req.params;

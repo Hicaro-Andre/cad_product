@@ -17,8 +17,10 @@ routes.delete("/products/:id" , ProductController.destroy);
 
 
 
-routes.post("/users" , UserController.usercreate );
-routes.get("/users" , UserController.userlist);
+routes.post("/users" , UserController.userCreate );
+routes.get("/users" , UserController.userList);
 routes.get("/users/:id" , UserController.userlistId);
+
+
 
 module.exports = routes;

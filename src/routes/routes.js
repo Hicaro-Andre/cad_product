@@ -20,6 +20,8 @@ routes.delete("/products/:id" , ProductController.destroy);
 routes.post("/users" , UserController.userCreate );
 routes.get("/users" , UserController.userList);
 routes.get("/users/:id" , UserController.userlistId);
+routes.put("/users/:id" , UserController.userUpdate);
+routes.delete("/users/:id" , UserController.userDelete);
 
 
 

@@ -23,6 +23,6 @@ routes.get("/users/:id" , UserController.userlistId);
 routes.put("/users/:id" , UserController.userUpdate);
 routes.delete("/users/:id" , UserController.userDelete);
 
-
+// routes.delete("/users/:id" , UserController.userDelete);
 
 module.exports = routes;

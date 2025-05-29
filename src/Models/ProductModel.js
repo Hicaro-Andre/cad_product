@@ -5,9 +5,16 @@ const ObjectId = Schema.ObjectId;
 
 const ProductSchema = new Schema({
   id: ObjectId,
+   imageUrl:{
+    type: String,
+    default: null,
+   },
   productName: String,
   description: String,
-  price: Number
+  price: Number,
+  stock: Number,
+  isActive: Boolean,
+  timesstamps: true,
 });
 
 const ProductModel = mongoose.model("products" , ProductSchema);

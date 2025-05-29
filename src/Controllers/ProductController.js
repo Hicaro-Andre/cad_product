@@ -2,7 +2,7 @@ const ProductModel = require("../Models/ProductModel.js");
 
 class ProductController {
   //todo: function of create the products
-  async store(req, res) {
+  async productCreate(req, res) {
     try {
       const createdProduct = await ProductModel.create(req.body);
       return res.status(200).json(createdProduct);
@@ -12,7 +12,7 @@ class ProductController {
   }
 
   //todo: function for list products
-  async index(req, res) {
+  async productList(req, res) {
     try {
       const products = await ProductModel.find();
       return res.status(200).json(products);
@@ -22,7 +22,7 @@ class ProductController {
   }
 
   //todo: function for list products with ID
-  async show(req, res) {
+  async productListId(req, res) {
     try {
       const { id } = req.params;
 
@@ -39,7 +39,7 @@ class ProductController {
   }
 
   //todo: function for update products
-  async update(req, res) {
+  async productUpdate(req, res) {
     try {
       const { id } = req.params;
 
@@ -50,7 +50,7 @@ class ProductController {
     }
   }
   //todo: function for delete products
-  async destroy(req, res) {
+  async productDelete(req, res) {
     try {
       const { id } = req.params;
 

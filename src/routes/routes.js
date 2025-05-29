@@ -1,6 +1,7 @@
 const { Router } = require ("express")
 const ProductController = require("../Controllers/ProductController")
-const UserController = require ("../Controllers/UserController")
+const UserController = require ("../Controllers/UserController");
+const CategoryController = require("../Controllers/CategoryController");
 
 const routes = Router();
 
@@ -9,20 +10,25 @@ routes.get("/index" , (req , res) => {
 });
 
 
-routes.post("/products" , ProductController.store );
-routes.get("/products" , ProductController.index );
-routes.get("/products/:id" , ProductController.show);
-routes.put("/products/:id" , ProductController.update);
-routes.delete("/products/:id" , ProductController.destroy);
-
-
 
 routes.post("/users" , UserController.userCreate );
 routes.get("/users" , UserController.userList);
-routes.get("/users/:id" , UserController.userlistId);
+routes.get("/users/:id" , UserController.userListId);
 routes.put("/users/:id" , UserController.userUpdate);
 routes.delete("/users/:id" , UserController.userDelete);
 
-// routes.delete("/users/:id" , UserController.userDelete);
+
+routes.post("/products" , ProductController.productCreate);
+routes.get("/products" , ProductController.productList);
+routes.get("/products/:id" , ProductController.productListId);
+routes.put("/products/:id" , ProductController.productUpdate);
+routes.delete("/products/:id" , ProductController.productDelete);
+
+routes.post("/category" , CategoryController.categoryCreate);
+routes.get("/category" , CategoryController.categoryList);
+routes.get("/category/:id" , CategoryController.categoryListId);
+routes.put("/category/:id" , CategoryController.categoryUpdate);
+routes.delete("/category/:id" , CategoryController.categoryDelete);
+
 
 module.exports = routes;

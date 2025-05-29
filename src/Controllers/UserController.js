@@ -22,7 +22,7 @@ class UserController {
   }
 
   //todo: function for list user with ID
-  async userlistId(req, res) {
+  async userListId(req, res) {
     try {
       const { id } = req.params;
 
